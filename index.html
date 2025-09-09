@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!--
+      index.html for: Oluwaferanmi Oladepo
+      Modern, responsive, and accessible personal landing page
+      Replace placeholder links with your real profiles before deploying.
+    -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <title>Oluwaferanmi Oladepo — AI Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Oluwaferanmi Oladepo — Certified Artificial Intelligence Engineer and engineering undergraduate (in view). Projects, skills, and contact."
+    />
+    <meta
+      name="keywords"
+      content="Oluwaferanmi, Oladepo, AI Engineer, Artificial Intelligence, Machine Learning, Portfolio"
+    />
+    <meta name="author" content="Oluwaferanmi Oladepo" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Oluwaferanmi Oladepo — AI Engineer" />
+    <meta
+      property="og:description"
+      content="Certified AI Engineer and engineering undergraduate (in view)."
+    />
+    <meta property="og:image" content="banner.png" />
+    <meta property="og:url" content="https://YOUR_USERNAME.github.io" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- PWA friendly meta -->
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Font -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0b1020;
+        --bg-soft: #0f172a;
+        --text: #e6eaf2;
+        --muted: #9aa4b2;
+        --brand: #6ee7f9;
+        --brand-2: #8b5cf6;
+        --card: rgba(255, 255, 255, 0.06);
+        --border: rgba(255, 255, 255, 0.12);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        --radius: 16px;
+      }
+
+      /* Light mode overrides */
+      :root.light {
+        --bg: #f7f8fb;
+        --bg-soft: #ffffff;
+        --text: #0b1020;
+        --muted: #536178;
+        --card: rgba(13, 18, 30, 0.04);
+        --border: rgba(13, 18, 30, 0.09);
+        --shadow: 0 10px 30px rgba(10, 22, 50, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        background: radial-gradient(
+            1200px 600px at 90% -10%,
+            rgba(139, 92, 246, 0.15),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 500px at -10% 20%,
+            rgba(110, 231, 249, 0.12),
+            transparent 60%
+          ),
+          var(--bg);
+        color: var(--text);
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          sans-serif;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1100px, 92vw);
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: saturate(1.2) blur(10px);
+        background: linear-gradient(
+            to bottom,
+            rgba(15, 23, 42, 0.8),
+            rgba(15, 23, 42, 0.5)
+          ),
+          transparent;
+        border-bottom: 1px solid var(--border);
+      }
+
+      :root.light header {
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.6)
+          ),
+          transparent;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+        gap: 16px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        letter-spacing: 0.4px;
+      }
+
+      .logo {
+        height: 28px;
+        width: 28px;
+        border-radius: 8px;
+        background: conic-gradient(
+          from 0deg,
+          var(--brand),
+          var(--brand-2),
+          var(--brand),
+          var(--brand-2)
+        );
+        position: relative;
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35),
+          inset 0 0 20px rgba(110, 231, 249, 0.45);
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 18px;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+      }
+
+      nav a {
+        padding: 8px 12px;
+        border-radius: 10px;
+        color: var(--muted);
+        border: 1px solid transparent;
+      }
+
+      nav a:hover,
+      nav a:focus-visible {
+        color: var(--text);
+        border-color: var(--border);
+        outline: none;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.02)
+          ),
+          var(--card);
+        box-shadow: var(--shadow);
+        color: var(--text);
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn.primary {
+        background: linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.25),
+          rgba(110, 231, 249, 0.25)
+        );
+        border: 1px solid rgba(139, 92, 246, 0.4);
+      }
+
+      .btn.ghost {
+        background: transparent;
+      }
+
+      .theme-toggle {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: inline-grid;
+        place-items: center;
+      }
+
+      main {
+        display: grid;
+        gap: 80px;
+      }
+
+      .hero {
+        padding: 80px 0 40px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 36px;
+        align-items: center;
+      }
+
+      @media (max-width: 880px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 60px 0 20px;
+        }
+      }
+
+      .hero h1 {
+        font-size: clamp(32px, 6vw, 54px);
+        line-height: 1.05;
+        margin: 0 0 16px;
+        letter-spacing: -0.02em;
+      }
+
+      .gradient {
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: clamp(16px, 2.2vw, 20px);
+        margin: 0 0 22px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 26px;
+      }
+
+      .tag {
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+        background: var(--card);
+      }
+
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.02)
+          ),
+          var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card {
+        padding: 18px;
+        display: grid;
+        grid-template-columns: 84px 1fr;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .avatar {
+        width: 84px;
+        height: 84px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        display: grid;
+        place-items: center;
+        color: #0b1020;
+        font-weight: 800;
+        font-size: 28px;
+        letter-spacing: 0.5px;
+      }
+
+      .hero-meta {
+        display: grid;
+        gap: 6px;
+      }
+
+      .hero-meta .name {
+        font-weight: 700;
+      }
+
+      .hero-meta .role {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      section {
+        scroll-margin-top: 100px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+
+      .section-title {
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .projects {
+        grid-template-columns: repeat(12, 1fr);
+      }
+
+      .project {
+        grid-column: span 6;
+        padding: 18px;
+        transition: transform 0.18s ease;
+      }
+
+      .project:hover {
+        transform: translateY(-4px);
+      }
+
+      @media (max-width: 900px) {
+        .project {
+          grid-column: span 12;
+        }
+      }
+
+      .project h3 {
+        margin: 6px 0 6px;
+        font-size: 18px;
+      }
+
+      .project p {
+        margin: 0 0 10px;
+        color: var(--muted);
+      }
+
+      .project .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .skills {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: 900px) {
+        .skills {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .skill {
+        padding: 16px;
+      }
+
+      .skill h4 {
+        margin: 4px 0 10px;
+        font-size: 16px;
+      }
+
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .badge {
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+
+      .item {
+        padding: 16px;
+      }
+
+      .item h4 {
+        margin: 0 0 4px;
+      }
+
+      .item .when {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        margin-top: 40px;
+        padding: 20px 0 60px;
+        color: var(--muted);
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+        white-space: nowrap;
+      }
+
+      /* Simple reveal on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="sr-only" href="#main">Skip to content</a>
+
+    <header>
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="Home">
+          <div class="logo" aria-hidden="true"></div>
+          <span>Oluwaferanmi Oladepo</span>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li>
+              <a href="#contact" class="btn ghost" aria-label="Contact me"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <button
+                id="themeToggle"
+                class="btn theme-toggle"
+                aria-label="Toggle theme"
+                title="Toggle theme"
+              >
+                <span id="themeIcon" aria-hidden="true">🌙</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <!-- Hero -->
+      <section id="top" class="hero">
+        <div>
+          <h1 class="reveal">
+            Hi, I’m <span class="gradient">Oluwaferanmi Oladepo</span>
+          </h1>
+          <p class="subtitle reveal" style="transition-delay: 80ms">
+            Certified Artificial Intelligence Engineer and engineering
+            undergraduate (in view). I design, build, and deploy intelligent
+            systems that solve real problems.
+          </p>
+
+          <div class="tags reveal" style="transition-delay: 140ms">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">NLP</span>
+            <span class="tag">MLOps</span>
+          </div>
+
+          <div class="cta reveal" style="transition-delay: 200ms">
+            <a class="btn primary" href="#projects" aria-label="See projects"
+              >View Projects</a
+            >
+            <a class="btn" href="resume.pdf" download aria-label="Download CV"
+              >Download CV</a
+            >
+            <a
+              class="btn ghost"
+              href="https://github.com/YOUR_USERNAME"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub profile"
+              >GitHub</a
+            >
+          </div>
+        </div>
+
+        <div class="hero-card card reveal" style="transition-delay: 120ms">
+          <div class="avatar" aria-hidden="true">OO</div>
+          <div class="hero-meta">
+            <div class="name">Oluwaferanmi Oladepo</div>
+            <div class="role">
+              Certified AI Engineer • Engineering Undergraduate (in view)
+            </div>
+            <div class="links" style="margin-top: 8px">
+              <a
+                class="badge"
+                href="mailto:youremail@example.com"
+                aria-label="Send email"
+                >youremail@example.com</a
+              >
+              <a
+                class="badge"
+                href="https://www.linkedin.com/in/YOUR_USERNAME"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                >LinkedIn</a
+              >
+              <a
+                class="badge"
+                href="https://twitter.com/YOUR_USERNAME"
+                target="_blank"
+                rel="noopener"
+                aria-label="X (Twitter)"
+                >X</a
+              >
+              <a
+                class="badge"
+                href="https://github.com/YOUR_USERNAME"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="section-header">
+          <h2 class="section-title" id="projects-title">Featured Projects</h2>
+          <a
+            class="btn ghost"
+            href="https://github.com/YOUR_USERNAME?tab=repositories"
+            target="_blank"
+            rel="noopener"
+            >View all</a
+          >
+        </div>
+
+        <div class="grid projects">
+          <article class="project card reveal" style="transition-delay: 60ms">
+            <div class="meta">
+              <span>Computer Vision</span>
+              <a
+                href="https://github.com/YOUR_USERNAME/PROJECT_SLUG"
+                class="badge"
+                target="_blank"
+                rel="noopener"
+                >Repo ↗</a
+              >
+            </div>
+            <h3>EdgeGuard: Real-time Safety Detection</h3>
+            <p>
+              YOLOv8-based model deployed with TensorRT for on-device PPE
+              compliance and hazard detection at the edge (35 ms latency).
+            </p>
+            <div class="badges">
+              <span class="badge">Python</span>
+              <span class="badge">PyTorch</span>
+              <span class="badge">TensorRT</span>
+              <span class="badge">ONNX</span>
+            </div>
+          </article>
+
+          <article class="project card reveal" style="transition-delay: 120ms">
+            <div class="meta">
+              <span>NLP</span>
+              <a
+                href="https://github.com/YOUR_USERNAME/PROJECT_SLUG"
+                class="badge"
+                target="_blank"
+                rel="noopener"
+                >Repo ↗</a
+              >
+            </div>
+            <h3>MedSpeak: Clinical Notes Summarizer</h3>
+            <p>
+              Fine-tuned LLM with LoRA and domain adapters for accurate
+              SOAP-style summary generation. Includes evaluation with ROUGE and
+              BERTScore.
+            </p>
+            <div class="badges">
+              <span class="badge">Hugging Face</span>
+              <span class="badge">LoRA</span>
+              <span class="badge">Transformers</span>
+              <span class="badge">FastAPI</span>
+            </div>
+          </article>
+
+          <article class="project card reveal" style="transition-delay: 180ms">
+            <div class="meta">
+              <span>MLOps</span>
+              <a
+                href="https://github.com/YOUR_USERNAME/PROJECT_SLUG"
+                class="badge"
+                target="_blank"
+                rel="noopener"
+                >Repo ↗</a
+              >
+            </div>
+            <h3>DriftWatch: Model Monitoring Stack</h3>
+            <p>
+              End-to-end monitoring with data drift, concept drift, and
+              performance alerts. Prometheus + Grafana dashboards with Slack
+              webhooks.
+            </p>
+            <div class="badges">
+              <span class="badge">Docker</span>
+              <span class="badge">Prometheus</span>
+              <span class="badge">Grafana</span>
+              <span class="badge">Python</span>
+            </div>
+          </article>
+
+          <article class="project card reveal" style="transition-delay: 240ms">
+            <div class="meta">
+              <span>Research</span>
+              <a
+                href="https://github.com/YOUR_USERNAME/PROJECT_SLUG"
+                class="badge"
+                target="_blank"
+                rel="noopener"
+                >Repo ↗</a
+              >
+            </div>
+            <h3>FairLearn: Bias-Aware Classification</h3>
+            <p>
+              Comparative study of fairness constraints on tabular datasets,
+              exploring equalized odds and demographic parity with post-hoc
+              calibration.
+            </p>
+            <div class="badges">
+              <span class="badge">scikit-learn</span>
+              <span class="badge">Pandas</span>
+              <span class="badge">Jupyter</span>
+              <span class="badge">Paper</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Experience / Certifications -->
+      <section id="experience" aria-labelledby="experience-title">
+        <h2 class="section-title" id="experience-title">
+          Experience & Certifications
+        </h2>
+        <div class="timeline">
+          <div class="item card reveal" style="transition-delay: 60ms">
+            <h4>Certified Artificial Intelligence Engineer</h4>
+            <div class="when">Issued by: [Your Certifying Body] · 2024</div>
+            <p>
+              Credential covering ML systems design, model training, evaluation,
+              and deployment, with emphasis on responsible AI and reliability.
+            </p>
+          </div>
+
+          <div class="item card reveal" style="transition-delay: 120ms">
+            <h4>AI Engineering Intern — [Company]</h4>
+            <div class="when">[Month Year] – [Month Year]</div>
+            <p>
+              Built data pipelines, trained models, and shipped inference APIs.
+              Improved model F1 by 11% via feature engineering and better
+              class-balancing strategies.
+            </p>
+          </div>
+
+          <div class="item card reveal" style="transition-delay: 180ms">
+            <h4>B.Eng. — [Your Discipline]</h4>
+            <div class="when">Undergraduate (in view)</div>
+            <p>
+              Coursework: Probability, Linear Algebra, Data Structures, Signals,
+              Optimization, and Embedded Systems. Active in AI/Robotics club.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" aria-labelledby="skills-title">
+        <div class="section-header">
+          <h2 class="section-title" id="skills-title">Skills</h2>
+        </div>
+        <div class="grid skills">
+          <div class="skill card reveal" style="transition-delay: 60ms">
+            <h4>Core</h4>
+            <div class="badges">
+              <span class="badge">Python</span>
+              <span class="badge">PyTorch</span>
+              <span class="badge">TensorFlow</span>
+              <span class="badge">scikit-learn</span>
+              <span class="badge">NumPy</span>
+              <span class="badge">Pandas</span>
+            </div>
+          </div>
+
+          <div class="skill card reveal" style="transition-delay: 120ms">
+            <h4>MLOps</h4>
+            <div class="badges">
+              <span class="badge">Docker</span>
+              <span class="badge">FastAPI</span>
+              <span class="badge">Airflow</span>
+              <span class="badge">Weights & Biases</span>
+              <span class="badge">MLflow</span>
+              <span class="badge">GitHub Actions</span>
+            </div>
+          </div>
+
+          <div class="skill card reveal" style="transition-delay: 180ms">
+            <h4>Extras</h4>
+            <div class="badges">
+              <span class="badge">SQL</span>
+              <span class="badge">Rust</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">Next.js</span>
+              <span class="badge">Tailwind</span>
+              <span class="badge">Figma</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="section-header">
+          <h2 class="section-title" id="contact-title">Get in touch</h2>
+        </div>
+
+        <div class="card" style="padding: 18px">
+          <p class="reveal" style="max-width: 70ch; transition-delay: 60ms">
+            I’m open to internships, research collaborations, and AI engineering
+            roles. The fastest way to reach me is via email or LinkedIn.
+          </p>
+          <div class="links" style="margin-top: 12px">
+            <a
+              class="btn primary"
+              href="mailto:youremail@example.com"
+              aria-label="Email me"
+              >Email me</a
+            >
+            <a
+              class="btn"
+              href="https://www.linkedin.com/in/YOUR_USERNAME"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              >LinkedIn</a
+            >
+            <a
+              class="btn ghost"
+              href="https://cal.com/YOUR_USERNAME/intro"
+              target="_blank"
+              rel="noopener"
+              aria-label="Book a call"
+              >Book a call</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; gap: 12px">
+          <span
+            >© <span id="year"></span> Oluwaferanmi Oladepo. All rights
+            reserved.</span
+          >
+          <div class="links">
+            <a href="#top" class="badge" aria-label="Back to top">Top ↑</a>
+            <a
+              href="https://github.com/YOUR_USERNAME/YOUR_REPO"
+              class="badge"
+              target="_blank"
+              rel="noopener"
+              aria-label="Source code"
+              >Source</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Oluwaferanmi Oladepo",
+        "jobTitle": "Artificial Intelligence Engineer",
+        "email": "mailto:youremail@example.com",
+        "url": "https://YOUR_USERNAME.github.io",
+        "sameAs": [
+          "https://github.com/YOUR_USERNAME",
+          "https://www.linkedin.com/in/YOUR_USERNAME",
+          "https://twitter.com/YOUR_USERNAME"
+        ]
+      }
+    </script>
+
+    <script>
+      // Theme persistence
+      (function () {
+        const root = document.documentElement;
+        const preferred =
+          localStorage.getItem("theme") ||
+          (window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark");
+        if (preferred === "light") root.classList.add("light");
+
+        const btn = document.getElementById("themeToggle");
+        const icon = document.getElementById("themeIcon");
+        function updateIcon() {
+          const light = root.classList.contains("light");
+          icon.textContent = light ? "🌞" : "🌙";
+          // Update theme-color for PWA / mobile browsers
+          const meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", light ? "#ffffff" : "#0f172a");
+        }
+        btn.addEventListener("click", () => {
+          root.classList.toggle("light");
+          localStorage.setItem(
+            "theme",
+            root.classList.contains("light") ? "light" : "dark"
+          );
+          updateIcon();
+        });
+        updateIcon();
+      })();
+
+      // Reveal on scroll
+      (function () {
+        const els = Array.from(document.querySelectorAll(".reveal"));
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        els.forEach((el) => io.observe(el));
+      })();
+
+      // Dynamic year
+      document.getElementById("year").textContent =
+        new Date().getFullYear().toString();
+    </script>
+  </body>
+</html>
